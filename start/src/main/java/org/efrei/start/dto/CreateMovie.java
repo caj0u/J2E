@@ -6,7 +6,7 @@ public class CreateMovie {
 
     private String title;
     private Category category;
-    private String directorId; // Ajoutez ce champ
+    private String directorId;
 
     public String getTitle() {
         return this.title;
@@ -24,11 +24,11 @@ public class CreateMovie {
         this.category = category;
     }
 
-    public String getDirectorId() { // Ajoutez ce getter
+    public String getDirectorId() {
         return this.directorId;
     }
 
-    public void setDirectorId(String directorId) { // Ajoutez ce setter
+    public void setDirectorId(String directorId) {
         this.directorId = directorId;
     }
 }

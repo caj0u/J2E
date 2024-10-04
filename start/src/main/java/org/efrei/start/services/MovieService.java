@@ -12,12 +12,12 @@ import org.springframework.stereotype.Service;
 public class MovieService {
 
     private final MovieRepository repository;
-    private final DirectorService directorService; // Ajoutez cette ligne
+    private final DirectorService directorService;
 
     @Autowired
     public MovieService(MovieRepository repository, DirectorService directorService) {
         this.repository = repository;
-        this.directorService = directorService; // Initialisez le service du directeur
+        this.directorService = directorService;
     }
 
     public List<Movie> findAll() {
@@ -33,7 +33,6 @@ public class MovieService {
         movie.setTitle(createMovie.getTitle());
         movie.setCategory(createMovie.getCategory());
 
-        // Associez le directeur
         Director director = directorService.findById(createMovie.getDirectorId());
         movie.setDirector(director);
 
@@ -47,8 +46,8 @@ public class MovieService {
     public void update(String id, Movie movie) {
         Movie updatedMovie = findById(id);
         updatedMovie.setTitle(movie.getTitle());
-        updatedMovie.setCategory(movie.getCategory()); // Assurez-vous de mettre à jour la catégorie
-        updatedMovie.setDirector(movie.getDirector()); // Mettez à jour le directeur si nécessaire
+        updatedMovie.setCategory(movie.getCategory());
+        updatedMovie.setDirector(movie.getDirector());
         repository.save(updatedMovie);
     }
 }
